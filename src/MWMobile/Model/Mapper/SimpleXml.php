@@ -4,9 +4,8 @@ namespace MWMobile\Model\Mapper;
 
 use MWMobile\Model\Vehicle;
 use MWMobile\Model\Image;
-use mehrWEB;
 
-class SimpleXml
+class SimpleXml implements MapperInterface
 {
     /**
      * @var string

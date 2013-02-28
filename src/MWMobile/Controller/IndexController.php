@@ -2,10 +2,11 @@
 
 namespace MWMobile\Controller;
 
+use Zend\Mvc\Controller\AbstractActionController;
+
+use MWMobile\Model\Mapper\SimpleXml;
 use MWMobile\Model\Webservice\Response;
 use MWMobile\Model\Webservice\Search;
-
-use Zend\Mvc\Controller\AbstractActionController;
 
 class IndexController extends AbstractActionController
 {
@@ -14,6 +15,6 @@ class IndexController extends AbstractActionController
         $webservice = $this->getServiceLocator()->get('mwmobile_webservice');
         $response = $webservice->query(new Search());
         
-        return array('response' => new Response($response));
+        return array('response' => new Response($response, new SimpleXml()));
     }
 }

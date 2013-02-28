@@ -2,33 +2,68 @@
 
 namespace MWMobile\Model\Webservice;
 
-use MWMobile\Model\Vehicle\Collection;
-
-use MWMobile\Model\Vehicle\SimpleXmlFactory;
-
 use Zend\Http\Response as HttpResponse;
+
 use MWMobile\Model\Vehicle;
-use MWMobile\Model\Mapper\SimpleXml;
+use MWMobile\Model\Mapper\MapperInterface;
+use MWMobile\Model\Vehicle\Collection;
 
 class Response
 {
+    /**
+     * @var HttpResponse
+     */
     protected $httpResponse;
     
     /**
-     * @param HttpResponse $response
+     * @var MapperInterface
      */
-    public function __construct(HttpResponse $response)
+    protected $mapper;
+    
+    /**
+     * @param HttpResponse $response
+     * @param MapperInterface $mapper
+     */
+    public function __construct(HttpResponse $response, MapperInterface $mapper)
     {
-        $this->httpResponse = $response;
+        $this->setHttpResponse($response);
+        $this->setMapper($mapper);
     }
     
     /**
-     * @return \MWMobile\Model\Mapper\SimpleXml
+     * @return HttpResponse
+     */
+    public function getHttpResponse ()
+    {
+        return $this->httpResponse;
+    }
+    
+    /**
+     * @param HttpResponse $response
+     * @return \MWMobile\Model\Webservice\Response
+     */
+    public function setHttpResponse (HttpResponse $response)
+    {
+        $this->httpResponse = $response;
+        return $this;
+    }
+    
+    /**
+     * @param MapperInterface $mapper
+     * @return \MWMobile\Model\Webservice\Response
+     */
+    public function setMapper (MapperInterface $mapper)
+    {
+        $this->mapper = $mapper;
+        return $this;
+    }
+    
+    /**
+     * @return \MWMobile\Model\Mapper\MapperInterface
      */
     public function getMapper ()
     {
-        // @TODO
-        return new SimpleXml();
+        return $this->mapper;
     }
     
     /**
