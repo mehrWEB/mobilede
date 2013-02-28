@@ -72,7 +72,22 @@ class Vehicle
     /**
      * @var string
      */
+    protected $model;
+    
+    /**
+     * @var integer
+     */
+    protected $power;
+    
+    /**
+     * @var string
+     */
     protected $detailUrl;
+    
+    /**
+     * @var string
+     */
+    protected $icon;
     
     /**
      * @var ImageCollection
@@ -122,6 +137,14 @@ class Vehicle
     }
     
     /**
+     * @return string
+     */
+    public function getTitle ()
+    {
+        return $this->title;
+    }
+    
+    /**
      * @param string $description
      * @return \MWMobile\Model\Vehicle
      */
@@ -129,6 +152,14 @@ class Vehicle
     {
         $this->description = (string) $description;
         return $this;
+    }
+    
+    /**
+     * @return string
+     */
+    public function getDescription ()
+    {
+        return $this->description;
     }
     
     /**
@@ -142,6 +173,14 @@ class Vehicle
     }
     
     /**
+     * @return string
+     */
+    public function getIcon ()
+    {
+        return $this->icon;
+    }
+    
+    /**
      * @param float $price
      * @return \MWMobile\Model\Vehicle
      */
@@ -152,6 +191,14 @@ class Vehicle
         }
         $this->consumerPrice = (float) $price;
         return $this;
+    }
+    
+    /**
+     * @return float
+     */
+    public function getConsumerPrice ()
+    {
+        return $this->consumerPrice;
     }
     
     /**
@@ -183,6 +230,14 @@ class Vehicle
     }
     
     /**
+     * @return string
+     */
+    public function getMake ()
+    {
+        return $this->make;
+    }
+    
+    /**
      * @param string $condition
      * @return \MWMobile\Model\Vehicle
      */
@@ -190,6 +245,14 @@ class Vehicle
     {
         $this->condition = (string) $condition;
         return $this;
+    }
+    
+    /**
+     * @return string
+     */
+    public function getCondition ()
+    {
+        return $this->condition;
     }
     
     /**
@@ -304,16 +367,40 @@ class Vehicle
         return $this->fuel;
     }
     
+    /**
+     * @param integer $power
+     * @return \MWMobile\Model\Vehicle
+     */
     public function setPower ($power)
     {
         $this->power = (int) $power;
         return $this;
     }
     
+    /**
+     * @return integer
+     */
+    public function getPower ()
+    {
+        return $this->power;
+    }
+    
+    /**
+     * @param string $model
+     * @return \MWMobile\Model\Vehicle
+     */
     public function setModel ($model)
     {
-        $this->model = $model;
+        $this->model = (string) $model;
         return $this;
+    }
+    
+    /**
+     * @return string
+     */
+    public function getModel ()
+    {
+        return $this->model;
     }
     
     /**
@@ -324,6 +411,14 @@ class Vehicle
     {
         $this->generalInspection = $inspection;
         return $this;
+    }
+    
+    /**
+     * @return \DateTime
+     */
+    public function getGeneralInspection ()
+    {
+        return $this->generalInspection;
     }
     
     /**

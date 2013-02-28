@@ -15,7 +15,7 @@ class ImageCollection implements \Iterator
     protected $images = array();
     
     /**
-     * @param array $images
+     * @param array $images OPTIONAL
      */
     public function __construct (array $images = array())
     {
