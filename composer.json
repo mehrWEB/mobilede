@@ -1,0 +1,17 @@
+{
+    "name": "mehrWEB/mobilede",
+    "description": "ZF2 module to connect with the mobile.de API",
+    "license": "MIT",
+    "homepage": "https://github.com/mehrWEB/mobilede",
+    "authors": [
+        {
+            "name": "Timo Ziemann",
+            "email": "info@mehrweb.de",
+            "homepage": "http://www.mehrweb.de"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "zendframework/zendframework": "2.*",
+    }
+}
