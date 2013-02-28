@@ -2,11 +2,8 @@
 
 namespace MWMobile\Controller;
 
-use MWMobile\Model\Webservice;
 use MWMobile\Model\Webservice\Response;
 use MWMobile\Model\Webservice\Search;
-
-use Zend\Http\Client;
 
 use Zend\Mvc\Controller\AbstractActionController;
 
