@@ -1,8 +1,10 @@
 <?php
 
-namespace MWMobile\Model;
+namespace MWMobile\Model\Image;
 
-class ImageCollection implements \Iterator
+use MWMobile\Model\Image;
+
+class Collection implements \Iterator
 {
     /**
      * @var integer

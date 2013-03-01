@@ -2,6 +2,8 @@
 
 namespace MWMobile\Model;
 
+use MWMobile\Model\Image\Collection as ImageCollection;
+
 class Vehicle
 {
     /**
@@ -90,7 +92,7 @@ class Vehicle
     protected $icon;
     
     /**
-     * @var ImageCollection
+     * @var ImagCollection
      */
     protected $imageCollection;
     

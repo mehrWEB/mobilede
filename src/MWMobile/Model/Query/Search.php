@@ -1,6 +1,6 @@
 <?php
 
-namespace MWMobile\Model\Webservice;
+namespace MWMobile\Model\Query;
 
 class Search implements QueryInterface
 {

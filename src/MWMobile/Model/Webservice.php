@@ -2,7 +2,7 @@
 
 namespace MWMobile\Model;
 
-use MWMobile\Model\Webservice\QueryInterface;
+use MWMobile\Model\Query\QueryInterface;
 
 use Zend\Uri\Http;
 use Zend\Http\Client;
