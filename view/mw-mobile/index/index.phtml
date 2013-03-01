@@ -1,3 +1,27 @@
 <?php foreach($response->getCollection() as $vehicle) : ?>
-    <?php var_dump($vehicle); ?>
+    <article class="vehicle">
+        <img src="<?php echo $vehicle->getIcon(); ?>" />
+        
+        <h3><?php echo $this->escapeHtml($vehicle->getTitle()); ?></h3>
+        <?php if($vehicle->getDescription()) : ?>
+            <p><?php echo $this->escapeHtml($vehicle->getDescription()); ?></p>
+        <?php endif; ?>
+        
+        <dl style="clear: left;">
+            <dt>Fuel:</dt>
+            <dd><?php echo $vehicle->getFuel(); ?></dd>
+            <dt>Mileage:</dt>
+            <dd><?php echo $vehicle->getMileage(); ?>km</dd>
+        </dl>
+    </article>
 <?php endforeach; ?>
+
+<style>
+article img {
+    float: left;
+    margin: 0 1em 0 0;
+}
+article {
+    margin: 0 0 1em 0;
+}
+</style>

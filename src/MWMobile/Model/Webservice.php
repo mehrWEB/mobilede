@@ -35,6 +35,11 @@ class Webservice
     protected $customer;
     
     /**
+     * @var string
+     */
+    protected $acceptLanguage;
+    
+    /**
      * @param Client $client
      * @param string $user
      * @param string $password
@@ -46,6 +51,24 @@ class Webservice
              ->setPassword($password)
              ->setCustomer($customer)
              ->setHttpClient($client);
+    }
+    
+    /**
+     * @param string $language
+     * @return \MWMobile\Model\Webservice
+     */
+    public function setAcceptLanguage ($language)
+    {
+        $this->acceptLanguage = (string) $language;
+        return $this;
+    }
+    
+    /**
+     * @return string
+     */
+    public function getAcceptLanguage ()
+    {
+        return $this->acceptLanguage;
     }
     
     /**
@@ -124,7 +147,13 @@ class Webservice
     public function query (QueryInterface $query)
     {
         $client = $this->getHttpClient();
-        $client->setHeaders(array());
+        
+        // language setting from config
+        if($this->getAcceptLanguage()) {
+            $client->setHeaders(array(
+                'Accept-Language' => $this->getAcceptLanguage()
+            ));
+        }
         
         // setup api url
         $uri = new Http(self::API_BASE . $query->getUrl());

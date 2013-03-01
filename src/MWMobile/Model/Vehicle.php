@@ -95,6 +95,11 @@ class Vehicle
     protected $imageCollection;
     
     /**
+     * @var string
+     */
+    protected $fuel;
+    
+    /**
      * @param integer $id
      * @return \MWMobile\Model\Vehicle
      */

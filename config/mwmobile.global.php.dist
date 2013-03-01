@@ -6,6 +6,7 @@ return array(
             'user' => 'your-api-username',
             'password' => 'your-api-password',
             'customer' => -1, // id of your client
-        )
+        ),
+        'language' => 'de'
     ),
 );
