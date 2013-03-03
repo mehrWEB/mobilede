@@ -46,6 +46,14 @@ class Image
     }
     
     /**
+     * @return string
+     */
+    public function __toString ()
+    {
+        return $this->getUrl(self::SIZE_S);
+    }
+    
+    /**
      * @param string $size
      * @param string $url
      * @return \MWMobile\Model\Image

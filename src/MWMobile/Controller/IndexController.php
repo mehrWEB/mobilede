@@ -22,12 +22,15 @@ class IndexController extends AbstractActionController
     
     public function detailsAction ()
     {
+        $id = $this->params('id', 140101104);
+        
         $webservice = $this->getServiceLocator()->get('mwmobile_webservice');
-        $query = new DetailQuery($this->params('id', 140101104));
-        $response = $webservice->query($query);
+        $query = new DetailQuery($id);
+        $httpResponse = $webservice->query($query);
+        $response = new DetailResponse($httpResponse, new SimpleXml());
         
         return array(
-            'response' => new DetailResponse($response, new SimpleXml())
+            'vehicle' => $response->getCollection()->current()
         );
     }
 }
