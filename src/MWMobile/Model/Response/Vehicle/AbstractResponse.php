@@ -11,11 +11,15 @@ use MWMobile\Model\Vehicle;
 abstract class AbstractResponse extends BaseResponse implements XmlInterface
 {
     /**
+     * @throws Exception
      * @return \MWMobile\Model\Vehicle\Collection
      */
     public function getCollection ()
     {
         $xml = $this->getBody();
+        if(!$xml) {
+            throw new Exception('Check API settings (user, version, password, ...)');
+        }
         $ads = $xml->xpath($this->getXmlXpath());
     
         $collection = new Collection();

@@ -12,7 +12,7 @@ class Webservice
     /**
      * @var string
      */
-    const API_BASE = 'http://services.mobile.de/1.0.0';
+    const API_BASE = 'http://services.mobile.de';
     
     /**
      * @var Client
@@ -40,17 +40,42 @@ class Webservice
     protected $acceptLanguage;
     
     /**
+     * @var string
+     */
+    protected $version;
+    
+    /**
      * @param Client $client
      * @param string $user
      * @param string $password
      * @param integer $customer
+     * @param string $version OPTIONAL
      */
-    public function __construct (Client $client, $user, $password, $customer)
+    public function __construct (Client $client, $user, $password, $customer, $version = '1.0.0')
     {
         $this->setUser($user)
              ->setPassword($password)
              ->setCustomer($customer)
-             ->setHttpClient($client);
+             ->setHttpClient($client)
+             ->setVersion($version);
+    }
+    
+    /**
+     * @param string $version
+     * @return \MWMobile\Model\Webservice
+     */
+    public function setVersion ($version)
+    {
+        $this->version = (string) $version;
+        return $this;
+    }
+    
+    /**
+     * @return string
+     */
+    public function getVersion ()
+    {
+        return $this->version;
     }
     
     /**
@@ -156,7 +181,7 @@ class Webservice
         }
         
         // setup api url
-        $uri = new Http(self::API_BASE . $query->getUrl());
+        $uri = new Http(self::API_BASE . '/' . $this->getVersion() . $query->getUrl());
         $uri->setQuery($query->getHttpQuery())
             ->setUserInfo($this->getUser() . ':' . $this->getPassword());
         

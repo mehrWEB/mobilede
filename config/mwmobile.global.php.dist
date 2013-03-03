@@ -3,9 +3,10 @@
 return array(
     'mwmobile' => array(
         'api' => array(
-            'user' => 'your-api-username',
-            'password' => 'your-api-password',
-            'customer' => -1, // id of your client
+            'user'      => 'your-api-username',
+            'password'  => 'your-api-password',
+            'customer'  => -1, // id of your client,
+            'version'   => '1.0.0'
         ),
         'language' => 'de'
     ),

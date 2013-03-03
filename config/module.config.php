@@ -17,9 +17,10 @@ return array(
                 $user = $apiConfig['user'];
                 $password = $apiConfig['password'];
                 $customer = $apiConfig['customer'];
+                $version = $apiConfig['version'];
                 
                 $service = new \MWMobile\Model\Webservice($client, $user, 
-                        $password, $customer);
+                        $password, $customer, $version);
                 $service->setAcceptLanguage($config['mwmobile']['language']);
                 return $service;
             }
