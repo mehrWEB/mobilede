@@ -2,7 +2,7 @@
     <article class="vehicle">
         <img src="<?php echo $vehicle->getIcon(); ?>" />
         
-        <h3><?php echo $this->escapeHtml($vehicle->getTitle()); ?></h3>
+        <h3><?php echo $this->escapeHtml($vehicle->getId()); ?></h3>
         <?php if($vehicle->getDescription()) : ?>
             <p><?php echo $this->escapeHtml($vehicle->getDescription()); ?></p>
         <?php endif; ?>

@@ -1,14 +1,11 @@
 <?php
 
-namespace MWMobile\Model\Webservice;
+namespace MWMobile\Model\Response;
 
+use MWMobile\Model\Mapper\MapperInterface;
 use Zend\Http\Response as HttpResponse;
 
-use MWMobile\Model\Vehicle;
-use MWMobile\Model\Mapper\MapperInterface;
-use MWMobile\Model\Vehicle\Collection;
-
-class Response
+abstract class AbstractResponse
 {
     /**
      * @var HttpResponse
@@ -40,7 +37,7 @@ class Response
     
     /**
      * @param HttpResponse $response
-     * @return \MWMobile\Model\Webservice\Response
+     * @return \MWMobile\Model\Response\AbstractResponse
      */
     public function setHttpResponse (HttpResponse $response)
     {
@@ -50,7 +47,7 @@ class Response
     
     /**
      * @param MapperInterface $mapper
-     * @return \MWMobile\Model\Webservice\Response
+     * @return \MWMobile\Model\Response\AbstractResponse
      */
     public function setMapper (MapperInterface $mapper)
     {
@@ -64,25 +61,5 @@ class Response
     public function getMapper ()
     {
         return $this->mapper;
-    }
-    
-    /**
-     * @return \MWMobile\Model\Vehicle\Collection
-     */
-    public function getCollection ()
-    {
-        if(!$this->httpResponse->isSuccess()) {
-            throw new Exception('Please check API credentials.');
-        }
-        $xml = simplexml_load_string($this->httpResponse->getBody());
-        $ads = $xml->xpath('ad:ad');
-        
-        $collection = new Collection();
-        foreach($ads as $ad) {
-            $target = new Vehicle();
-            $collection->add($this->getMapper()->transform($ad, $target));
-        }
-        
-        return $collection;
     }
 }

@@ -5,7 +5,8 @@ namespace MWMobile\Controller;
 use Zend\Mvc\Controller\AbstractActionController;
 
 use MWMobile\Model\Mapper\SimpleXml;
-use MWMobile\Model\Webservice\Response;
+use MWMobile\Model\Response\Vehicle\Detail as DetailResponse;
+use MWMobile\Model\Response\Vehicle\Listing as ListResponse;
 use MWMobile\Model\Query\Search as SearchQuery;
 use MWMobile\Model\Query\Details as DetailQuery;
 
@@ -16,17 +17,17 @@ class IndexController extends AbstractActionController
         $webservice = $this->getServiceLocator()->get('mwmobile_webservice');
         $response = $webservice->query(new SearchQuery());
         
-        return array('response' => new Response($response, new SimpleXml()));
+        return array('response' => new ListResponse($response, new SimpleXml()));
     }
     
     public function detailsAction ()
     {
         $webservice = $this->getServiceLocator()->get('mwmobile_webservice');
-        $query = new DetailQuery($this->params('id'));
+        $query = new DetailQuery($this->params('id', 140101104));
         $response = $webservice->query($query);
         
         return array(
-            'response' => new Response($response, new SimpleXml())
+            'response' => new DetailResponse($response, new SimpleXml())
         );
     }
 }
