@@ -84,7 +84,7 @@ class Webservice
      */
     public function setAcceptLanguage ($language)
     {
-        $this->acceptLanguage = (string) $language;
+        $this->acceptLanguage = strtolower($language);
         return $this;
     }
     

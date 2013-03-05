@@ -7,18 +7,30 @@ use Zend\Http\Client;
 
 class MWMobile_Model_WebserviceTest extends \PHPUnit_Framework_TestCase
 {
+    protected $user = 'some-user';
+    protected $pass = 'some-pass';
+    protected $customer = 12345;
+    
+    protected $service;
+    
     protected function setUp ()
     {
-        $client = new Client();
-        $user = 'some-user';
-        $password = 'some-pass';
-        $customer = 1234;
-        
-        $this->service = new Webservice($client, $user, $password, $customer);
+        $this->service = new Webservice(new Client(), $this->user, $this->pass, 
+                $this->customer);
     }
     
     public function testConstructor ()
     {
-        $this->assertEquals(1234, $this->service->getCustomer());
+        $this->assertEquals($this->customer, $this->service->getCustomer());
+        $this->assertEquals($this->user, $this->service->getUser());
+        $this->assertEquals($this->pass, $this->service->getPassword());
+        $this->assertEquals('1.0.0', $this->service->getVersion());
+    }
+    
+    public function testAcceptLanguage ()
+    {
+        $language= 'DE';
+        $this->service->setAcceptLanguage($language);
+        $this->assertEquals('de', $this->service->getAcceptLanguage());
     }
 }
