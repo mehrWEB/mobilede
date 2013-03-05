@@ -132,6 +132,9 @@ class Webservice
         return $this;
     }
     
+    /**
+     * @return integer
+     */
     public function getCustomer ()
     {
         return $this->customer;
@@ -166,6 +169,15 @@ class Webservice
     }
     
     /**
+     * @param string $path
+     * @return string
+     */
+    protected function buildApiUrl ($path)
+    {
+        return self::API_BASE . '/' . $this->getVersion() . $path;
+    }
+    
+    /**
      * @param QueryInterface $query
      * @return \Zend\Http\Response
      */
@@ -181,7 +193,7 @@ class Webservice
         }
         
         // setup api url
-        $uri = new Http(self::API_BASE . '/' . $this->getVersion() . $query->getUrl());
+        $uri = new Http($this->buildApiUrl($query->getUrl()));
         $uri->setQuery($query->getHttpQuery())
             ->setUserInfo($this->getUser() . ':' . $this->getPassword());
         
