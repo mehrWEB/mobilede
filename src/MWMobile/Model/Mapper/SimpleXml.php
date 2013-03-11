@@ -258,10 +258,10 @@ class SimpleXml implements MapperInterface
     
     /**
      * @param \SimpleXMLElement $source
-     * @param Vehicle $target
+     * @param mixed $target
      * @return Vehicle
      */
-    public function transform(\SimpleXMLElement $source, Vehicle $target)
+    public function transform(\SimpleXMLElement $source, $target)
     {
         // mobile.de info
         $this->setId($source, $target);
