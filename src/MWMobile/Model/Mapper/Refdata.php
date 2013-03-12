@@ -10,8 +10,9 @@ class Refdata implements MapperInterface
      */
     public function transform(\SimpleXMLElement $source, $target)
     {
+        $xpath = 'resource:local-description';
         $target->setKey($source->attributes()->key);
-        $target->setValue($source->xpath('resource:local-description')[0]);
+        $target->setValue($source->xpath($xpath)[0]);
         return $target;
     }
 }

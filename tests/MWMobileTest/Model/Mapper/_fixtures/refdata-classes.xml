@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<reference:reference xmlns:resource="http://services.mobile.de/schema/resource"
+    xmlns:ad="http://services.mobile.de/schema/ad" xmlns:seller="http://services.mobile.de/schema/seller"
+    xmlns:financing="http://services.mobile.de/schema/common/financing-1.0"
+    xmlns:reference="http://services.mobile.de/schema/reference">
+    <reference:item key="AgriculturalVehicle"
+        url="http://services.mobile.de/1.0.0/refdata/classes/AgriculturalVehicle">
+        <resource:local-description xml-lang="de">
+            Agrarfahrzeug</resource:local-description>
+    </reference:item>
+    <reference:item key="Trailer"
+        url="http://services.mobile.de/1.0.0/refdata/classes/Trailer">
+        <resource:local-description xml-lang="de">
+            Anhänger</resource:local-description>
+    </reference:item>
+    <reference:item key="SemiTrailer"
+        url="http://services.mobile.de/1.0.0/refdata/classes/SemiTrailer">
+        <resource:local-description xml-lang="de">
+            Auflieger</resource:local-description>
+    </reference:item>
+    <reference:item key="ConstructionMachine"
+        url="http://services.mobile.de/1.0.0/refdata/classes/ConstructionMachine">
+        <resource:local-description xml-lang="de">
+            Baumaschine</resource:local-description>
+    </reference:item>
+    <reference:item key="Bus"
+        url="http://services.mobile.de/1.0.0/refdata/classes/Bus">
+        <resource:local-description xml-lang="de">
+            Bus</resource:local-description>
+    </reference:item>
+    <reference:item key="TruckOver7500"
+        url="http://services.mobile.de/1.0.0/refdata/classes/TruckOver7500">
+        <resource:local-description xml-lang="de">
+            Lkw über 7,5t</resource:local-description>
+    </reference:item>
+    <reference:item key="Motorbike"
+        url="http://services.mobile.de/1.0.0/refdata/classes/Motorbike">
+        <resource:local-description xml-lang="de">
+            Motorrad</resource:local-description>
+    </reference:item>
+    <reference:item key="Car"
+        url="http://services.mobile.de/1.0.0/refdata/classes/Car">
+        <resource:local-description xml-lang="de">
+            Pkw</resource:local-description>
+    </reference:item>
+    <reference:item key="SemiTrailerTruck"
+        url="http://services.mobile.de/1.0.0/refdata/classes/SemiTrailerTruck">
+        <resource:local-description xml-lang="de">
+            Sattelzugmaschine (SZM)</resource:local-description>
+    </reference:item>
+    <reference:item key="ForkliftTruck"
+        url="http://services.mobile.de/1.0.0/refdata/classes/ForkliftTruck">
+        <resource:local-description xml-lang="de">
+            Stapler</resource:local-description>
+    </reference:item>
+    <reference:item key="VanUpTo7500"
+        url="http://services.mobile.de/1.0.0/refdata/classes/VanUpTo7500">
+        <resource:local-description xml-lang="de">
+            Transporter oder Lkw bis 7,5t</resource:local-description>
+    </reference:item>
+    <reference:item key="Motorhome"
+        url="http://services.mobile.de/1.0.0/refdata/classes/Motorhome">
+        <resource:local-description xml-lang="de">
+            Wohnmobil oder -wagen</resource:local-description>
+    </reference:item>
+</reference:reference>

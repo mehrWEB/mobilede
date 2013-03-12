@@ -50,7 +50,7 @@ class Refdata
      */
     public function setKey ($key)
     {
-        $this->key = (string) $key;
+        $this->key = trim((string) $key);
         return $this;
     }
     
@@ -60,7 +60,7 @@ class Refdata
      */
     public function setValue ($value)
     {
-        $this->value = (string) $value;
+        $this->value = trim((string) $value);
         return $this;
     }
 }
