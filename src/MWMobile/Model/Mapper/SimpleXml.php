@@ -28,18 +28,6 @@ class SimpleXml implements MapperInterface
      * @param Vehicle $target
      * @return Vehicle
      */
-    protected function setTitle (\SimpleXMLElement $source, Vehicle $target)
-    {
-        $path = self::XML_NS . ':vehicle/' . self::XML_NS . ':model-description/@value';
-        $title = $source->xpath($path);
-        return $target->setTitle($title[0]);
-    }
-    
-    /**
-     * @param \SimpleXMLElement $source
-     * @param Vehicle $target
-     * @return Vehicle
-     */
     protected function setConsumerPrice (\SimpleXMLElement $source, Vehicle $target)
     {
         $path = self::XML_NS. ':price/' . self::XML_NS . ':consumer-price-amount/@value';
@@ -268,7 +256,6 @@ class SimpleXml implements MapperInterface
         $this->setDetailUrl($source, $target);
         $this->setIcon($source, $target);
         
-        $this->setTitle($source, $target);
         $this->setDescription($source, $target);
         
         // what car is it?

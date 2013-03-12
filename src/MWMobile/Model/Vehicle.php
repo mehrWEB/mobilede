@@ -24,11 +24,6 @@ class Vehicle
     /**
      * @var string
      */
-    protected $title;
-    
-    /**
-     * @var string
-     */
     protected $description;
     
     /**
@@ -135,20 +130,6 @@ class Vehicle
     public function getDetailUrl ()
     {
         return $this->detailUrl;
-    }
-    
-    public function setTitle ($title)
-    {
-        $this->title = (string) $title;
-        return $this;
-    }
-    
-    /**
-     * @return string
-     */
-    public function getTitle ()
-    {
-        return $this->title;
     }
     
     /**

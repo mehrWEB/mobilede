@@ -1,7 +1,4 @@
-<h1><?php echo $this->escapeHtml($vehicle->getTitle()); ?></h1>
-<p class="description">
-    <?php echo $this->escapeHtml($vehicle->getDescription()); ?>
-</p>
+<h1><?php echo $this->escapeHtml($vehicle->getDescription()); ?></h1>
 
 <p class="price">
     <?php echo number_format($vehicle->getConsumerPrice(), 2, ',', '.'); ?>

@@ -1,0 +1,116 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ad:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:financing="http://services.mobile.de/schema/common/financing-1.0"
+    xmlns:seller="http://services.mobile.de/schema/seller" xmlns:ad="http://services.mobile.de/schema/ad"
+    xmlns:resource="http://services.mobile.de/schema/resource" key="1234567"
+    url="http://services.mobile.de/1.0.0/ad/1234567"
+    xsi:schemaLocation="http://services.mobile.de/schema/ad http://services.mobile.de/schema/ad-1.0.xsd">
+    <ad:creation-date value="2013-01-02T10:51:47.135+01:00" />
+    <ad:modification-date value="2013-01-02T10:51:47+01:00" />
+    <ad:detail-page
+        url="http://suchen.mobile.de/lkw-inserat/some-path/1234567.html" />
+    <ad:vehicle>
+        <ad:class key="ConstructionMachine"
+            url="http://services.mobile.de/1.0.0/refdata/classes/ConstructionMachine">
+            <resource:local-description
+                xml-lang="de">Baumaschine</resource:local-description>
+        </ad:class>
+        <ad:category key="MiniDigger"
+            url="http://services.mobile.de/1.0.0/refdata/categories/MiniDigger">
+            <resource:local-description
+                xml-lang="de">Mini-/Kompaktbagger
+            </resource:local-description>
+        </ad:category>
+        <ad:make key="YAMAGUCHI"
+            url="http://services.mobile.de/1.0.0/refdata/classes/ConstructionMachine/makes/YAMAGUCHI">
+            <resource:local-description
+                xml-lang="de">Yamaguchi</resource:local-description>
+        </ad:make>
+        <ad:model-description
+            value="some description for the vehicle" />
+        <ad:damage-and-unrepaired value="false" />
+        <ad:specifics>
+            <ad:operating-hours value="1" />
+            <ad:construction-year value="2011" />
+            <ad:condition key="USED"
+                url="http://services.mobile.de/1.0.0/refdata/conditions/USED">
+                <resource:local-description
+                    xml-lang="de">Gebrauchtfahrzeug
+                </resource:local-description>
+            </ad:condition>
+        </ad:specifics>
+    </ad:vehicle>
+    <ad:description>some name!</ad:description>
+    <ad:enrichedDescription>even longer description with enriched data!</ad:enrichedDescription>
+    <ad:images
+        gallery-url="http://i.ebayimg.com/07/some-image-url~~_23.JPG"
+        url="http://services.mobile.de/1.0.0/ad/1234567/images">
+        <ad:image>
+            <ad:representation size="ICON"
+                url="http://i.ebayimg.com/07/some-image-url~~_23.JPG" />
+            <ad:representation size="S"
+                url="http://i.ebayimg.com/07/some-image-url~~_18.JPG" />
+            <ad:representation size="L"
+                url="http://i.ebayimg.com/07/some-image-url~~_19.JPG" />
+            <ad:representation size="M"
+                url="http://i.ebayimg.com/07/some-image-url~~_24.JPG" />
+            <ad:representation size="XL"
+                url="http://i.ebayimg.com/07/some-image-url~~_27.JPG" />
+        </ad:image>
+        <ad:image>
+            <ad:representation size="ICON"
+                url="http://i.ebayimg.com/10/some-other-image~~_23.JPG" />
+            <ad:representation size="S"
+                url="http://i.ebayimg.com/10/some-other-image~~_18.JPG" />
+            <ad:representation size="L"
+                url="http://i.ebayimg.com/10/some-other-image~~_19.JPG" />
+            <ad:representation size="M"
+                url="http://i.ebayimg.com/10/some-other-image~~_24.JPG" />
+            <ad:representation size="XL"
+                url="http://i.ebayimg.com/10/some-other-image~~_27.JPG" />
+        </ad:image>
+        <ad:image>
+            <ad:representation size="ICON"
+                url="http://i.ebayimg.com/04/another-one~_23.JPG" />
+            <ad:representation size="S"
+                url="http://i.ebayimg.com/04/another-one~_18.JPG" />
+            <ad:representation size="L"
+                url="http://i.ebayimg.com/04/another-one~_19.JPG" />
+            <ad:representation size="M"
+                url="http://i.ebayimg.com/04/another-one~_24.JPG" />
+            <ad:representation size="XL"
+                url="http://i.ebayimg.com/04/another-one~_27.JPG" />
+        </ad:image>
+    </ad:images>
+    <ad:price currency="EUR" type="FIXED">
+        <ad:dealer-price-amount value="7378.00" />
+        <ad:consumer-price-amount value="7676.00" />
+        <ad:vatable value="true" />
+        <ad:vat-rate value="0.1900" />
+    </ad:price>
+    <seller:seller key="12345"
+        url="http://services.mobile.de/1.0.0/seller/12345">
+        <seller:type value="DEALER" commercial="true" />
+        <seller:company-name
+            value="seller name!" />
+        <seller:address>
+            <seller:street value="Seller street 1234" />
+            <seller:zipcode value="12345" />
+            <seller:city value="Some city" />
+            <seller:country-code value="DE" />
+        </seller:address>
+        <seller:phone type="FIXED" country-calling-code="49"
+            area-code="01234" number="12345" />
+        <seller:phone type="FAX" country-calling-code="49"
+            area-code="01234" number="123456" />
+        <seller:phone type="CELL" country-calling-code="49"
+            area-code="0123" number="1234567" />
+        <seller:email value="seller@example.com" />
+        <seller:homepage value="http://home.mobile.de/SELLER-ALIAS" />
+        <seller:mobile-seller-since value="1999-02-15+01:00" />
+        <seller:contact-languages>
+            <seller:language>de</seller:language>
+            <seller:language>en</seller:language>
+        </seller:contact-languages>
+    </seller:seller>
+</ad:ad>
