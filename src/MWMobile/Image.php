@@ -77,4 +77,12 @@ class Image
     
         return $this->_urls[$size];
     }
+    
+    /**
+     * @return array
+     */
+    public function getUrls ()
+    {
+        return $this->_urls;
+    }
 }
