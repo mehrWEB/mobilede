@@ -14,6 +14,7 @@ use MWMobile\Mapper\Refdata as RefdataMapper;
 use MWMobile\Response\Vehicle\Detail as DetailResponse;
 use MWMobile\Response\Refdata as RefdataResponse;
 use MWMobile\Webservice\Options as WebserviceOptions;
+use MWMobile\Response\Vehicle\Listing;
 
 class Webservice 
 {
@@ -109,6 +110,22 @@ class Webservice
     {
         $response = $this->request('/refdata/' . $refdataPath);
         $apiResponse = new RefdataResponse($response, new RefdataMapper());
+        
+        return $apiResponse->getCollection();
+    }
+    
+    /**
+     * @param Search $search
+     * @return \Zend\Http\Response
+     */
+    public function loadVehicles (Search $search)
+    {
+        $request = new Request();
+        $uri = new Http($this->buildApiUrl($search->getUrl()));
+        $uri->setQuery($search->getHttpQuery());
+        
+        $response = $this->getHttpClient()->send($request->setUri($uri));
+        $apiResponse = new Listing($response, new VehicleMapper());
         
         return $apiResponse->getCollection();
     }

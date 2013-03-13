@@ -4,6 +4,7 @@ namespace MWMobileTest;
 
 use MWMobile\Webservice;
 use Zend\Http\Client;
+use MWMobile\Search;
 
 class WebserviceTest extends \PHPUnit_Framework_TestCase
 {
@@ -24,26 +25,9 @@ class WebserviceTest extends \PHPUnit_Framework_TestCase
         $this->service = new Webservice(new Client(), $options);
     }
     
-    public function testConstructor ()
-    {
-        $options = $this->service->getOptions();
-        $this->assertEquals($this->customer, $options->getCustomer());
-        $this->assertEquals($this->user, $options->getUser());
-        $this->assertEquals($this->pass, $options->getPassword());
-        $this->assertEquals('1.0.0', $options->getVersion());
-    }
-    
-    public function testAcceptLanguage ()
-    {
-        $language= 'DE';
-        $options = $this->service->getOptions();
-        $options->setAcceptLanguage($language);
-        $this->assertEquals('de', $options->getAcceptLanguage());
-    }
-    
     public function testLoadVehicle ()
     {
-        $vehicle = $this->service->loadVehicle(169827436);
+        $vehicle = $this->service->loadVehicle(1234);
         $this->assertInstanceOf('\MWMobile\Vehicle', $vehicle);
     }
     
@@ -51,5 +35,14 @@ class WebserviceTest extends \PHPUnit_Framework_TestCase
     {
         $collection = $this->service->loadRefdata('classes');
         $this->assertInstanceOf('\MWMobile\Refdata\Collection', $collection);
+    }
+    
+    public function testSearchVehicles ()
+    {
+        $query = new Search();
+        $vehicles = $this->service->loadVehicles($query);
+        
+        $this->assertInstanceOf('\MWMobile\Vehicle\Collection', $vehicles);
+        $this->assertLessThanOrEqual($query->getPageSize(), count($vehicles));
     }
 }
