@@ -6,98 +6,118 @@ use MWMobile\Image\Collection as ImageCollection;
 
 class Vehicle
 {
+
     /**
+     *
      * @var integer
      */
     protected $id;
-    
+
     /**
+     *
      * @var string
      */
     protected $make;
-    
+
     /**
+     *
      * @var string
      */
     protected $color;
-    
+
     /**
+     *
      * @var string
      */
     protected $description;
-    
+
     /**
+     *
      * @var boolean
      */
     protected $vatable = true;
-    
+
     /**
+     *
      * @var string
      */
     protected $currency = 'EUR';
-    
+
     /**
+     *
      * @var string
      */
     protected $condition;
-    
+
     /**
+     *
      * @var string
      */
     protected $gearboxType;
-    
+
     /**
+     *
      * @var float
      */
     protected $consumerPrice;
-    
+
     /**
+     *
      * @var \DateTime
      */
     protected $firstRegistration;
-    
+
     /**
+     *
      * @var \DateTime
      */
     protected $generalInspection;
-    
+
     /**
+     *
      * @var integer
      */
     protected $mileage;
-    
+
     /**
+     *
      * @var string
      */
     protected $model;
-    
+
     /**
+     *
      * @var integer
      */
     protected $power;
-    
+
     /**
+     *
      * @var string
      */
     protected $detailUrl;
-    
+
     /**
+     *
      * @var string
      */
     protected $icon;
-    
+
     /**
+     *
      * @var ImageCollection
      */
     protected $imageCollection;
-    
+
     /**
+     *
      * @var string
      */
     protected $fuel;
-    
+
     /**
-     * @param integer $id
+     *
+     * @param integer $id            
      * @return \MWMobile\Vehicle
      */
     public function setId ($id)
@@ -105,17 +125,19 @@ class Vehicle
         $this->id = (int) $id;
         return $this;
     }
-    
+
     /**
+     *
      * @return integer
      */
     public function getId ()
     {
         return $this->id;
     }
-    
+
     /**
-     * @param string $url
+     *
+     * @param string $url            
      * @return \MWMobile\Vehicle
      */
     public function setDetailUrl ($url)
@@ -123,17 +145,19 @@ class Vehicle
         $this->detailUrl = (string) $url;
         return $this;
     }
-    
+
     /**
+     *
      * @return string
      */
     public function getDetailUrl ()
     {
         return $this->detailUrl;
     }
-    
+
     /**
-     * @param string $description
+     *
+     * @param string $description            
      * @return \MWMobile\Vehicle
      */
     public function setDescription ($description)
@@ -141,17 +165,19 @@ class Vehicle
         $this->description = (string) $description;
         return $this;
     }
-    
+
     /**
+     *
      * @return string
      */
     public function getDescription ()
     {
         return $this->description;
     }
-    
+
     /**
-     * @param string $url
+     *
+     * @param string $url            
      * @return \MWMobile\Vehicle
      */
     public function setIcon ($url)
@@ -159,38 +185,42 @@ class Vehicle
         $this->icon = (string) $url;
         return $this;
     }
-    
+
     /**
+     *
      * @return string
      */
     public function getIcon ()
     {
         return $this->icon;
     }
-    
+
     /**
-     * @param float $price
+     *
+     * @param float $price            
      * @return \MWMobile\Vehicle
      */
     public function setConsumerPrice ($price)
     {
-        if(!is_numeric($price)) {
+        if(! is_numeric($price)) {
             throw new \InvalidArgumentException('Not a price.');
         }
         $this->consumerPrice = (float) $price;
         return $this;
     }
-    
+
     /**
+     *
      * @return float
      */
     public function getConsumerPrice ()
     {
         return $this->consumerPrice;
     }
-    
+
     /**
-     * @param boolean $vatable
+     *
+     * @param boolean $vatable            
      * @return \MWMobile\Vehicle
      */
     public function setVatable ($vatable)
@@ -198,35 +228,39 @@ class Vehicle
         $this->vatable = (boolean) $vatable;
         return $this;
     }
-    
+
     /**
+     *
      * @return boolean
      */
     public function getVatable ()
     {
         return $this->vatable;
     }
-    
+
     /**
-     * @param string $make
+     *
+     * @param string $make            
      * @return \MWMobile\Vehicle
      */
-    public function setMake ($make) 
+    public function setMake ($make)
     {
         $this->make = (string) $make;
         return $this;
     }
-    
+
     /**
+     *
      * @return string
      */
     public function getMake ()
     {
         return $this->make;
     }
-    
+
     /**
-     * @param string $condition
+     *
+     * @param string $condition            
      * @return \MWMobile\Vehicle
      */
     public function setCondition ($condition)
@@ -234,39 +268,43 @@ class Vehicle
         $this->condition = (string) $condition;
         return $this;
     }
-    
+
     /**
+     *
      * @return string
      */
     public function getCondition ()
     {
         return $this->condition;
     }
-    
+
     /**
-     * @param string $currency
+     *
+     * @param string $currency            
      * @throws \InvalidArgumentException if not iso conform
      * @return \MWMobile\Vehicle
      */
     public function setCurrency ($currency)
     {
         if(strlen($currency) !== 3) {
-            throw new \InvalidArgumentException('Invalid currency: '. $currency);
+            throw new \InvalidArgumentException('Invalid currency: ' . $currency);
         }
         $this->currency = (string) $currency;
         return $this;
     }
-    
+
     /**
+     *
      * @return string
      */
     public function getCurrency ()
     {
         return $this->currency;
     }
-    
+
     /**
-     * @param integer $mileage
+     *
+     * @param integer $mileage            
      * @return \MWMobile\Vehicle
      */
     public function setMileage ($mileage)
@@ -274,17 +312,19 @@ class Vehicle
         $this->mileage = (int) $mileage;
         return $this;
     }
-    
+
     /**
+     *
      * @return integer
      */
     public function getMileage ()
     {
         return $this->mileage;
     }
-    
+
     /**
-     * @param \DateTime $firstRegistration
+     *
+     * @param \DateTime $firstRegistration            
      * @return \MWMobile\Vehicle
      */
     public function setFirstRegistration (\DateTime $firstRegistration)
@@ -292,17 +332,19 @@ class Vehicle
         $this->firstRegistration = $firstRegistration;
         return $this;
     }
-    
+
     /**
+     *
      * @return \DateTime
      */
     public function getFirstRegistration ()
     {
         return $this->firstRegistration;
     }
-    
+
     /**
-     * @param string $type
+     *
+     * @param string $type            
      * @return \MWMobile\Vehicle
      */
     public function setGearboxType ($type)
@@ -310,17 +352,19 @@ class Vehicle
         $this->gearboxType = (string) $type;
         return $this;
     }
-    
+
     /**
+     *
      * @return string
      */
     public function getGearboxType ()
     {
         return $this->gearboxType;
     }
-    
+
     /**
-     * @param string $color
+     *
+     * @param string $color            
      * @return \MWMobile\Vehicle
      */
     public function setColor ($color)
@@ -328,17 +372,19 @@ class Vehicle
         $this->color = (string) $color;
         return $this;
     }
-    
+
     /**
+     *
      * @return string
      */
     public function getColor ()
     {
         return $this->color;
     }
-    
+
     /**
-     * @param string $fuel
+     *
+     * @param string $fuel            
      * @return \MWMobile\Vehicle
      */
     public function setFuel ($fuel)
@@ -346,17 +392,19 @@ class Vehicle
         $this->fuel = (string) $fuel;
         return $this;
     }
-    
+
     /**
+     *
      * @return string
      */
     public function getFuel ()
     {
         return $this->fuel;
     }
-    
+
     /**
-     * @param integer $power
+     *
+     * @param integer $power            
      * @return \MWMobile\Vehicle
      */
     public function setPower ($power)
@@ -364,17 +412,19 @@ class Vehicle
         $this->power = (int) $power;
         return $this;
     }
-    
+
     /**
+     *
      * @return integer
      */
     public function getPower ()
     {
         return $this->power;
     }
-    
+
     /**
-     * @param string $model
+     *
+     * @param string $model            
      * @return \MWMobile\Vehicle
      */
     public function setModel ($model)
@@ -382,17 +432,19 @@ class Vehicle
         $this->model = (string) $model;
         return $this;
     }
-    
+
     /**
+     *
      * @return string
      */
     public function getModel ()
     {
         return $this->model;
     }
-    
+
     /**
-     * @param \DateTime $inspection
+     *
+     * @param \DateTime $inspection            
      * @return \MWMobile\Vehicle
      */
     public function setGeneralInspection (\DateTime $inspection)
@@ -400,17 +452,19 @@ class Vehicle
         $this->generalInspection = $inspection;
         return $this;
     }
-    
+
     /**
+     *
      * @return \DateTime
      */
     public function getGeneralInspection ()
     {
         return $this->generalInspection;
     }
-    
+
     /**
-     * @param Image $image
+     *
+     * @param Image $image            
      * @return \MWMobile\Vehicle
      */
     public function addImage (Image $image)
@@ -418,9 +472,10 @@ class Vehicle
         $this->getImageCollection()->addImage($image);
         return $this;
     }
-    
+
     /**
-     * @param ImageCollection $images
+     *
+     * @param ImageCollection $images            
      * @return \MWMobile\Vehicle
      */
     public function setImageCollection (ImageCollection $images)
@@ -428,8 +483,9 @@ class Vehicle
         $this->imageCollection = $images;
         return $this;
     }
-    
+
     /**
+     *
      * @return \MWMobile\Image\Collection
      */
     public function getImageCollection ()
